@@ -1,4 +1,13 @@
-from pyvtfx import core
+import sys, time
 
-def test_hello():
-    assert core.hello() is None  # Just prints for now
+sys.path.append('/Users/bgt/gitty/pyvtfx/src')
+
+import pyvtfx
+
+def test_foundations():
+    x, y = pyvtfx.get_cursor_position()
+    assert x is not None
+    assert y is not None
+    assert x >0
+    assert y > 0
+
