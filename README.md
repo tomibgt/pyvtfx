@@ -1,2 +1,2 @@
 # pyvtfx
-A python package for using ansi controls on terminals.
+A python package for using ANSI controls on terminals.
