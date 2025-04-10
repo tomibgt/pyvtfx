@@ -3,7 +3,12 @@ import sys
 import tty
 import termios
 
-def get_console_size() -> [int, int]:
+def clear_screen():
+    sys.stdout.write("\033[2J")
+    sys.stdout.flush()
+
+
+def get_console_size() -> list[int, int]:
     """Retrieve console size using ANSI escape codes."""
     fd = sys.stdin.fileno()
     old_settings = termios.tcgetattr(fd)  # Save terminal settings
@@ -27,7 +32,7 @@ def get_console_size() -> [int, int]:
     finally:
         termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)  # Restore settings
 
-def get_cursor_position() -> [int, int]:
+def get_cursor_position() -> list[int, int]:
     fd = sys.stdin.fileno()
     old_settings = termios.tcgetattr(fd)  # Save terminal settings
     try:
